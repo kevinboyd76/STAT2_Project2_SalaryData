@@ -33,6 +33,28 @@ write.table(salarydata, "SalaryData.csv", sep = ",", row.names = FALSE)
 read.csv("SalaryData.csv")
 
 
+ggplot(salarydata, aes(x=OverUnder50k)) +
+  geom_bar(fill = "steelblue") +
+  ggtitle("Number of Over and Under 50k") +
+  theme_classic()
+
+ggplot(salarydata, aes(x=Age, y=HoursPerWeek, color = OverUnder50k)) +
+  geom_point() +
+  ggtitle("Age vs Hours Worked Per Week") +
+  theme_classic()
+
+str(salarydata)
+
+data<- salarydata %>% select(Age,HoursPerWeek,EducationNum,CapitalLoss,CapitalGains)
+pairs(data)
+
+
+
+
+
+
+
+
 adultnames <- read.csv("~/Documents/SMU/STAT2/Project 2/adult_names.csv", header = FALSE)
 head(adultnames)
 
